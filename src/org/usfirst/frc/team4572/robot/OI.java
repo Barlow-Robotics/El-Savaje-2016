@@ -1,8 +1,8 @@
+
 package org.usfirst.frc.team4572.robot;
-
-import edu.wpi.first.wpilibj.buttons.Button;
-import org.usfirst.frc.team4572.robot.commands.ExampleCommand;
-
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Joystick.AxisType;
+import org.usfirst.frc.team4572.robot.RobotMap;
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -12,8 +12,8 @@ public class OI {
     // One type of button is a joystick button which is any button on a joystick.
     // You create one by telling it which joystick it's on and which button
     // number it is.
-    // Joystick stick = new Joystick(port);
-    // Button button = new JoystickButton(stick, buttonNumber);
+    static Joystick stick = new Joystick(RobotMap.CONTROLLER_PORT);
+    //Button button = new JoystickButton(stick, buttonNumber);
     
     // There are a few additional built in buttons you can use. Additionally,
     // by subclassing Button you can create custom triggers and bind those to
@@ -34,5 +34,13 @@ public class OI {
     // Start the command when the button is released  and let it run the command
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
+	
+	Joystick controller = new Joystick(RobotMap.CONTROLLER_PORT);
+	public static double getDriveLeft() {
+		return stick.getAxis(AxisType.kY);
+	}
+	public static double getDriveRight() {
+		return stick.getAxis(AxisType.kTwist) ;
+	}
 }
 
