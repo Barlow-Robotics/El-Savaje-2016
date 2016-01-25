@@ -112,7 +112,7 @@ public class Robot extends IterativeRobot {
     	
     	driveSystem.getBackRightMotor().set(0.2);
     	Timer.delay(3.0);
-    	driveSystem.getBackRightMotor().set(-0.0);
+    	driveSystem.getBackRightMotor().set(0.0);
     }
     
     /**
