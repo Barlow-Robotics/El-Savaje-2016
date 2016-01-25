@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team4572.robot.subsystems.DriveSystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.Timer;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -19,7 +20,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 	
 	public static final DriveSystem driveSystem = new DriveSystem();
-		public static OI oi;
+	public static OI oi;
 
     Command autonomousCommand;
     SendableChooser chooser;
@@ -94,6 +95,24 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+    }
+    
+    public void testInit() {
+    	driveSystem.getFrontLeftMotor().set(0.2);
+    	Timer.delay(3.0);
+    	driveSystem.getFrontLeftMotor().set(0.0);
+    	
+    	driveSystem.getBackLeftMotor().set(0.2);
+    	Timer.delay(3.0);
+    	driveSystem.getBackLeftMotor().set(0.0);
+    	
+    	driveSystem.getFrontRightMotor().set(0.2);
+    	Timer.delay(3.0);
+    	driveSystem.getFrontRightMotor().set(0.0);
+    	
+    	driveSystem.getBackRightMotor().set(0.2);
+    	Timer.delay(3.0);
+    	driveSystem.getBackRightMotor().set(-0.0);
     }
     
     /**
