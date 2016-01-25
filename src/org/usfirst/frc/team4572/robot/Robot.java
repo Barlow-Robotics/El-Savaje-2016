@@ -17,10 +17,11 @@ import edu.wpi.first.wpilibj.Timer;
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */
+
 public class Robot extends IterativeRobot {
 	
 	public static final DriveSystem driveSystem = new DriveSystem();
-	public static OI oi;
+	public static OI oi = new OI();
 
     Command autonomousCommand;
     SendableChooser chooser;
@@ -30,7 +31,6 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
-		oi = new OI();
         chooser = new SendableChooser();
         SmartDashboard.putData("Auto mode", chooser);
     }
