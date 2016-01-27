@@ -18,18 +18,30 @@ public class DriveSystem extends Subsystem {
 	
 	
 	private final RobotDrive driveTrain = new RobotDrive(
-		RobotMap.FRONT_LEFT_MOTOR_PORT,
-		RobotMap.BACK_LEFT_MOTOR_PORT,
-		RobotMap.FRONT_RIGHT_MOTOR_PORT,
-		RobotMap.BACK_RIGHT_MOTOR_PORT
-	);	
+		frontLeftMotor,
+		frontRightMotor,
+		backLeftMotor,
+		backRightMotor
+	);
+	
     public void initDefaultCommand() {
+    	getFrontLeftMotor().setInverted(true);
+    	getBackLeftMotor().setInverted(true);
     	setDefaultCommand(new DriveRunner());
     }
-    public void drive(double left, double right) {  
+    
+    public void drive(double leftSpeed, double rightSpeed) {
+    	
+    	//DRIVE THE THING BY LEFTSPPEEDDD
+    	
+    	frontLeftMotor.set(leftSpeed);
+    	backLeftMotor.set(leftSpeed);
+    	frontRightMotor.set(rightSpeed);
+    	backRightMotor.set(rightSpeed);
     	
     	// tell the drainTrain to drive
-    	driveTrain.tankDrive(left, right);
+    	//driveTrain.tankDrive(left, right);
+    	
     	
     	
     }

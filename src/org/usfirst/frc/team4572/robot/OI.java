@@ -37,10 +37,11 @@ public class OI {
 	
 	Joystick controller = new Joystick(RobotMap.CONTROLLER_PORT);
 	public static double getDriveLeft() {
-		return stick.getAxis(AxisType.kY);
+		//return stick.getAxis(AxisType.kY);
+		return stick.getY();
 	}
 	public static double getDriveRight() {
-		return stick.getAxis(AxisType.kTwist) ;
+		return stick.getThrottle();
 	}
 }
 

@@ -19,7 +19,7 @@ import edu.wpi.first.wpilibj.Timer;
 
 public class Robot extends IterativeRobot {
 
-	public static final DriveSystem driveSystem = new DriveSystem();
+	public static DriveSystem driveSystem;
 	public static OI oi = new OI();
 
 	Command autonomousCommand;
@@ -30,6 +30,11 @@ public class Robot extends IterativeRobot {
 	 * used for any initialization code.
 	 */
 	public void robotInit() {
+		
+		System.out.println("AM I RUNNING NOWWWWW?");
+		
+		driveSystem = new DriveSystem();
+		
 		chooser = new SendableChooser();
 		SmartDashboard.putData("Auto mode", chooser);
 	}
@@ -78,6 +83,12 @@ public class Robot extends IterativeRobot {
 	 */
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
+		
+//		System.out.println(driveSystem);
+		
+//		driveSystem.getBackLeftMotor().set(1.0);
+//		driveSystem.getFrontLeftMotor().set(1.0);
+		driveSystem.getDriveTrain().tankDrive(0.6, 0.6);
 	}
 
 	public void teleopInit() {
@@ -94,22 +105,41 @@ public class Robot extends IterativeRobot {
 	 */
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		
+		
+		if (OI.stick.getRawButton(1)) {
+			driveSystem.getFrontLeftMotor().set(0.7);
+		} 
+		else if(OI.stick.getRawButton(2)){
+			driveSystem.getFrontRightMotor().set(0.7);
+		}
+		else if(OI.stick.getRawButton(3)){
+			driveSystem.getBackLeftMotor().set(0.7);
+		}
+		else if(OI.stick.getRawButton(4)){
+			driveSystem.getBackRightMotor().set(0.7);
+		}
+		
+		
+		
+		
+		
 	}
 
 	public void testInit() {
-		driveSystem.getFrontLeftMotor().set(0.2);
+		driveSystem.getFrontLeftMotor().set(0.7);
 		Timer.delay(3.0);
 		driveSystem.getFrontLeftMotor().set(0.0);
 
-		driveSystem.getBackLeftMotor().set(0.2);
+		driveSystem.getBackLeftMotor().set(0.7);
 		Timer.delay(3.0);
 		driveSystem.getBackLeftMotor().set(0.0);
 
-		driveSystem.getFrontRightMotor().set(0.2);
+		driveSystem.getFrontRightMotor().set(0.7);
 		Timer.delay(3.0);
 		driveSystem.getFrontRightMotor().set(0.0);
 
-		driveSystem.getBackRightMotor().set(0.2);
+		driveSystem.getBackRightMotor().set(0.7);
 		Timer.delay(3.0);
 		driveSystem.getBackRightMotor().set(0.0);
 	}
