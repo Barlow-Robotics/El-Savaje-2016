@@ -1,26 +1,27 @@
-
 package org.usfirst.frc.team4572.robot.commands;
-
-import edu.wpi.first.wpilibj.command.Command;
-
 import org.usfirst.frc.team4572.robot.Robot;
+import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team4572.robot.OI;
 
 /**
  *
  */
-public class ExampleCommand extends Command {
-
-    public ExampleCommand() {
+public class DriveRunner extends Command {
+	
+    public DriveRunner() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.exampleSubsystem);
+        // eg. requires(chassis);
+    	requires(Robot.driveSystem);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.driveSystem.drive(OI.getDriveLeft(), OI.getDriveRight());
     }
 
     // Make this return true when this Command no longer needs to run execute()
