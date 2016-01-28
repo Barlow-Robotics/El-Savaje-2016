@@ -4,11 +4,10 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import org.usfirst.frc.team4572.robot.subsystems.DriveSystem;
+import org.usfirst.frc.team4572.robot.subsystems.*;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Timer;
-
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the IterativeRobot
@@ -20,8 +19,9 @@ import edu.wpi.first.wpilibj.Timer;
 public class Robot extends IterativeRobot {
 
 	public static DriveSystem driveSystem;
+	public static ArmSystem armSystem;
 	public static OI oi = new OI();
-
+	public static ExtensionSystem armExtensionSystem; 
 	Command autonomousCommand;
 	SendableChooser chooser;
 
@@ -30,11 +30,9 @@ public class Robot extends IterativeRobot {
 	 * used for any initialization code.
 	 */
 	public void robotInit() {
-		
-		System.out.println("AM I RUNNING NOWWWWW?");
-		
+				
 		driveSystem = new DriveSystem();
-		
+		armSystem = new ArmSystem();
 		chooser = new SendableChooser();
 		SmartDashboard.putData("Auto mode", chooser);
 	}
@@ -120,8 +118,13 @@ public class Robot extends IterativeRobot {
 			driveSystem.getBackRightMotor().set(0.7);
 		}
 		
+		if(OI.stick2.getTrigger()){
+			armExtensionSystem.openSolenoid();	
+		}
 		
-		
+		// TODO: RENAME ARMEXTENSIONSYSTEM
+		// TODO: RENAME STICK2
+		// TODO: MOVE CONTROL OF ARM SYSTEM TO THE RUNNER COMMAND
 		
 		
 	}

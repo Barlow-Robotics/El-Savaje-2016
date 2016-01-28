@@ -32,7 +32,7 @@ public class DriveSystem extends Subsystem {
     
     public void drive(double leftSpeed, double rightSpeed) {
     	
-    	//DRIVE THE THING BY LEFTSPPEEDDD
+    	//DRIVE THE THING BY LEFTSPEED
     	
     	frontLeftMotor.set(leftSpeed);
     	backLeftMotor.set(leftSpeed);
