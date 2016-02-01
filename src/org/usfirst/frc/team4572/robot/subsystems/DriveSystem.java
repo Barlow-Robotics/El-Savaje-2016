@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4572.robot.subsystems;
 
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team4572.robot.RobotMap;
@@ -11,10 +12,10 @@ import org.usfirst.frc.team4572.robot.commands.DriveRunner;
  */
 public class DriveSystem extends Subsystem {
 	
-	private final Talon frontLeftMotor = new Talon(RobotMap.FRONT_LEFT_MOTOR_PORT);
-	private final Talon frontRightMotor = new Talon(RobotMap.FRONT_RIGHT_MOTOR_PORT);
-	private final Talon backLeftMotor = new Talon(RobotMap.BACK_LEFT_MOTOR_PORT);
-	private final Talon backRightMotor = new Talon(RobotMap.BACK_RIGHT_MOTOR_PORT);
+	private final Spark frontLeftMotor = new Spark(RobotMap.FRONT_LEFT_MOTOR_PORT);
+	private final Spark frontRightMotor = new Spark(RobotMap.FRONT_RIGHT_MOTOR_PORT);
+	private final Spark backLeftMotor = new Spark(RobotMap.BACK_LEFT_MOTOR_PORT);
+	private final Spark backRightMotor = new Spark(RobotMap.BACK_RIGHT_MOTOR_PORT);
 	
 	
 	private final RobotDrive driveTrain = new RobotDrive(
@@ -46,19 +47,19 @@ public class DriveSystem extends Subsystem {
     	
     }
     
-	public Talon getFrontLeftMotor() {
+	public Spark getFrontLeftMotor() {
 		return frontLeftMotor;
 	}
 	
-	public Talon getFrontRightMotor() {
+	public Spark getFrontRightMotor() {
 		return frontRightMotor;
 	}
 	
-	public Talon getBackLeftMotor() {
+	public Spark getBackLeftMotor() {
 		return backLeftMotor;
 	}
 	
-	public Talon getBackRightMotor() {
+	public Spark getBackRightMotor() {
 		return backRightMotor;
 	}
 	

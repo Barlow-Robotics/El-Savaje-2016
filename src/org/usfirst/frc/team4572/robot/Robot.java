@@ -105,25 +105,23 @@ public class Robot extends IterativeRobot {
 		Scheduler.getInstance().run();
 		
 		
-		if (OI.stick.getRawButton(1)) {
+		if (OI.playstation.getRawButton(1)) {
 			driveSystem.getFrontLeftMotor().set(0.7);
 		} 
-		else if(OI.stick.getRawButton(2)){
+		else if(OI.playstation.getRawButton(2)){
 			driveSystem.getFrontRightMotor().set(0.7);
 		}
-		else if(OI.stick.getRawButton(3)){
+		else if(OI.playstation.getRawButton(3)){
 			driveSystem.getBackLeftMotor().set(0.7);
 		}
-		else if(OI.stick.getRawButton(4)){
+		else if(OI.playstation.getRawButton(4)){
 			driveSystem.getBackRightMotor().set(0.7);
 		}
 		
-		if(OI.stick2.getTrigger()){
+		if(OI.logitech.getTrigger()){
 			armExtensionSystem.openSolenoid();	
 		}
 		
-		// TODO: RENAME ARMEXTENSIONSYSTEM
-		// TODO: RENAME STICK2
 		// TODO: MOVE CONTROL OF ARM SYSTEM TO THE RUNNER COMMAND
 		
 		

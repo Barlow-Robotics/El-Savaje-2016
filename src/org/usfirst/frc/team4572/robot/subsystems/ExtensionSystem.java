@@ -9,8 +9,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class ExtensionSystem extends Subsystem {
-    private Solenoid rightSolenoid = new Solenoid(6);
-    private Solenoid leftSolenoid = new Solenoid(7);
+    private Solenoid rightSolenoid = new Solenoid(1);
+    private Solenoid leftSolenoid = new Solenoid(2);
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
