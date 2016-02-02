@@ -104,25 +104,32 @@ public class Robot extends IterativeRobot {
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 		
-		
-		if (OI.playstation.getRawButton(1)) {
+		if (OI.playstation.getRawButton(5)){
+			driveSystem.getBackLeftMotor().set(0.7);
 			driveSystem.getFrontLeftMotor().set(0.7);
-		} 
-		else if(OI.playstation.getRawButton(2)){
+		}
+		if (OI.playstation.getRawButton(6)){
+			driveSystem.getBackRightMotor().set(0.7);
 			driveSystem.getFrontRightMotor().set(0.7);
 		}
-		else if(OI.playstation.getRawButton(3)){
-			driveSystem.getBackLeftMotor().set(0.7);
-		}
-		else if(OI.playstation.getRawButton(4)){
-			driveSystem.getBackRightMotor().set(0.7);
-		}
-		
-		if(OI.logitech.getTrigger()){
-			armExtensionSystem.openSolenoid();	
-		}
-		
-		// TODO: MOVE CONTROL OF ARM SYSTEM TO THE RUNNER COMMAND
+//		if (OI.playstation.getRawButton(1)) {
+//			driveSystem.getFrontLeftMotor().set(0.7);
+//		} 
+//		if(OI.playstation.getRawButton(2)){
+//			driveSystem.getFrontRightMotor().set(0.7);
+//		}
+//		if(OI.playstation.getRawButton(3)){
+//			driveSystem.getBackLeftMotor().set(0.7);
+//		}
+//		if(OI.playstation.getRawButton(4)){
+//			driveSystem.getBackRightMotor().set(0.7);
+//		}
+//		
+//		if(OI.logitech.getTrigger()){
+//			armExtensionSystem.openSolenoid();	
+//		}
+//		
+//		// TODO: MOVE CONTROL OF ARM SYSTEM TO THE RUNNER COMMAND
 		
 		
 	}
