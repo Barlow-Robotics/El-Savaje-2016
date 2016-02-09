@@ -17,11 +17,11 @@ import edu.wpi.first.wpilibj.Timer;
  */
 
 public class Robot extends IterativeRobot {
-
+	public static CameraSystem camera;
 	public static DriveSystem driveSystem;
 	public static ArmSystem armSystem;
 	public static OI oi = new OI();
-	public static ExtensionSystem armExtensionSystem; 
+	public static ExtensionSystem armExtensionSystem;
 	Command autonomousCommand;
 	SendableChooser chooser;
 
@@ -30,7 +30,7 @@ public class Robot extends IterativeRobot {
 	 * used for any initialization code.
 	 */
 	public void robotInit() {
-				
+		camera = new CameraSystem();
 		driveSystem = new DriveSystem();
 		armSystem = new ArmSystem();
 		chooser = new SendableChooser();
