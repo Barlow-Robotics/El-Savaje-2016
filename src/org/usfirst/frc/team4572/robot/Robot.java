@@ -22,7 +22,7 @@ import edu.wpi.first.wpilibj.Timer;
 
 public class Robot extends IterativeRobot {
 
-	public static CameraSystem camera;
+	public static CameraSystem cameraSystem;
 	public static DriveSystem driveSystem;
 	public static OI oi = new OI();
 
@@ -35,7 +35,7 @@ public class Robot extends IterativeRobot {
 	 */
 	public void robotInit() {
 		
-		camera = new CameraSystem();		
+		cameraSystem = new CameraSystem();		
 		driveSystem = new DriveSystem();
 		
 		chooser = new SendableChooser();

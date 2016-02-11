@@ -16,19 +16,19 @@ public class CameraRunner extends Command {
     public CameraRunner() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.camera);
+    	requires(Robot.cameraSystem);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	NIVision.IMAQdxConfigureGrab(Robot.camera.session);
+    	NIVision.IMAQdxConfigureGrab(Robot.cameraSystem.session);
     	SmartDashboard.putString("Camera Update", "Initialized");
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	NIVision.IMAQdxGrab(Robot.camera.session, Robot.camera.frame, 1);
-    	CameraServer.getInstance().setImage(Robot.camera.frame);
+    	NIVision.IMAQdxGrab(Robot.cameraSystem.session, Robot.cameraSystem.frame, 1);
+    	CameraServer.getInstance().setImage(Robot.cameraSystem.frame);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -38,7 +38,7 @@ public class CameraRunner extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	NIVision.IMAQdxStopAcquisition(Robot.camera.session);
+    	NIVision.IMAQdxStopAcquisition(Robot.cameraSystem.session);
     	
     }
 
