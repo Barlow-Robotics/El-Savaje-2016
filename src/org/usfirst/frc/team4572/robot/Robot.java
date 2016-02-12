@@ -1,10 +1,12 @@
+
 package org.usfirst.frc.team4572.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import org.usfirst.frc.team4572.robot.subsystems.*;
+import org.usfirst.frc.team4572.robot.subsystems.CameraSystem;
+import org.usfirst.frc.team4572.robot.subsystems.DriveSystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Timer;
@@ -17,7 +19,7 @@ import edu.wpi.first.wpilibj.Timer;
  */
 
 public class Robot extends IterativeRobot {
-	public static CameraSystem camera;
+	public static CameraSystem cameraSystem;
 	public static DriveSystem driveSystem;
 	public static ArmSystem armSystem;
 	public static OI oi = new OI();
@@ -30,7 +32,7 @@ public class Robot extends IterativeRobot {
 	 * used for any initialization code.
 	 */
 	public void robotInit() {
-		camera = new CameraSystem();
+		cameraSystem = new CameraSystem();
 		driveSystem = new DriveSystem();
 		armSystem = new ArmSystem();
 		chooser = new SendableChooser();
@@ -81,9 +83,9 @@ public class Robot extends IterativeRobot {
 	 */
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
-		
+
 //		System.out.println(driveSystem);
-		
+
 //		driveSystem.getBackLeftMotor().set(1.0);
 //		driveSystem.getFrontLeftMotor().set(1.0);
 		driveSystem.getDriveTrain().tankDrive(0.6, 0.6);
@@ -103,7 +105,7 @@ public class Robot extends IterativeRobot {
 	 */
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		
+
 		if (OI.playstation.getRawButton(5)){
 			driveSystem.getBackLeftMotor().set(0.7);
 			driveSystem.getFrontLeftMotor().set(0.7);
@@ -114,7 +116,7 @@ public class Robot extends IterativeRobot {
 		}
 //		if (OI.playstation.getRawButton(1)) {
 //			driveSystem.getFrontLeftMotor().set(0.7);
-//		} 
+//		}
 //		if(OI.playstation.getRawButton(2)){
 //			driveSystem.getFrontRightMotor().set(0.7);
 //		}
@@ -124,14 +126,14 @@ public class Robot extends IterativeRobot {
 //		if(OI.playstation.getRawButton(4)){
 //			driveSystem.getBackRightMotor().set(0.7);
 //		}
-//		
+//
 //		if(OI.logitech.getTrigger()){
-//			armExtensionSystem.openSolenoid();	
+//			armExtensionSystem.openSolenoid();
 //		}
-//		
+//
 //		// TODO: MOVE CONTROL OF ARM SYSTEM TO THE RUNNER COMMAND
-		
-		
+
+
 	}
 
 	public void testInit() {
