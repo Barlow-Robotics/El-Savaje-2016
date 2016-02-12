@@ -38,7 +38,7 @@ public class CameraRunner extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	NIVision.IMAQdxStopAcquisition(Robot.cameraSystem.session)
+    	NIVision.IMAQdxStopAcquisition(Robot.cameraSystem.session);
     }
 
     // Called when another command which requires one or more of the same

@@ -5,8 +5,11 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+
+import org.usfirst.frc.team4572.robot.subsystems.ArmSystem;
 import org.usfirst.frc.team4572.robot.subsystems.CameraSystem;
 import org.usfirst.frc.team4572.robot.subsystems.DriveSystem;
+
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Timer;
@@ -23,7 +26,7 @@ public class Robot extends IterativeRobot {
 	public static DriveSystem driveSystem;
 	public static ArmSystem armSystem;
 	public static OI oi = new OI();
-	public static ExtensionSystem armExtensionSystem;
+	// public static ExtensionSystem armExtensionSystem;
 	Command autonomousCommand;
 	SendableChooser chooser;
 
