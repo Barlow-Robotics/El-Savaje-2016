@@ -7,7 +7,7 @@ import org.usfirst.frc.team4572.robot.OI;
  *
  */
 public class DriveRunner extends Command {
-	
+
     public DriveRunner() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -16,7 +16,7 @@ public class DriveRunner extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	
+
     }
 
     // Called repeatedly when this Command is scheduled to run

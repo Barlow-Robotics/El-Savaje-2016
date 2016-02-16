@@ -34,10 +34,10 @@ public class Robot extends IterativeRobot {
 	 * used for any initialization code.
 	 */
 	public void robotInit() {
-		
-		cameraSystem = new CameraSystem();		
+
+		cameraSystem = new CameraSystem();
 		driveSystem = new DriveSystem();
-		
+
 		chooser = new SendableChooser();
 		SmartDashboard.putData("Auto mode", chooser);
 	}
@@ -86,12 +86,12 @@ public class Robot extends IterativeRobot {
 	 */
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
-		
+
 //		System.out.println(driveSystem);
-		
+
 //		driveSystem.getBackLeftMotor().set(1.0);
 //		driveSystem.getFrontLeftMotor().set(1.0);
-		driveSystem.getDriveTrain().tankDrive(0.6, 0.6);
+//		driveSystem.getDriveTrain().tankDrive(0.6, 0.6);
 	}
 
 	public void teleopInit() {
@@ -108,25 +108,29 @@ public class Robot extends IterativeRobot {
 	 */
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		
-		
+
+
 		if (OI.stick.getRawButton(1)) {
 			driveSystem.getFrontLeftMotor().set(0.7);
-		} 
+			System.out.println("Front Left");
+		}
 		else if(OI.stick.getRawButton(2)){
 			driveSystem.getFrontRightMotor().set(0.7);
+			System.out.println("Front Right");
 		}
 		else if(OI.stick.getRawButton(3)){
 			driveSystem.getBackLeftMotor().set(0.7);
+			System.out.println("Back Left");
 		}
 		else if(OI.stick.getRawButton(4)){
 			driveSystem.getBackRightMotor().set(0.7);
+			System.out.println("Back Right");
 		}
-		
-		
-		
-		
-		
+
+
+
+
+
 	}
 
 	public void testInit() {
