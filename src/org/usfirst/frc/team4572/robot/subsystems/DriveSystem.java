@@ -18,12 +18,12 @@ public class DriveSystem extends Subsystem {
 	private final Spark backRightMotor = new Spark(RobotMap.BACK_RIGHT_MOTOR_PORT);
 	
 	
-	private final RobotDrive driveTrain = new RobotDrive(
-		frontLeftMotor,
-		frontRightMotor,
-		backLeftMotor,
-		backRightMotor
-	);
+//	private final RobotDrive driveTrain = new RobotDrive(
+//		frontLeftMotor,
+//		frontRightMotor,
+//		backLeftMotor,
+//		backRightMotor
+//	);
 	
     public void initDefaultCommand() {
     	getFrontLeftMotor().setInverted(true);
@@ -63,10 +63,10 @@ public class DriveSystem extends Subsystem {
 		return backRightMotor;
 	}
 	
-	public RobotDrive getDriveTrain() {
-		return driveTrain;
-		
-	}
+//	public RobotDrive getDriveTrain() {
+//		return driveTrain;
+//		
+//	}
 	
 }
 

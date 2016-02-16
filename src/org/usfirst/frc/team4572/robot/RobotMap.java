@@ -21,13 +21,9 @@ public class RobotMap {
 	public static final int ARM_MOTOR_PORT = 5;
 	
 	//PNEUMATICS
-	public static final int RIGHT_SOLENOID_PORT = 1;
-	public static final int LEFT_SOLENOID_PORT = 2;
+	public static final int EXTENSTION_SOLENOID_PORT = 0;
 	
 	//SENSORS
 	public static final int CAMERA_PORT = 1;
-    // If you are using multiple modules, make sure to define both the port
-    // number and the module. For example you with a rangefinder:
-    // public static int rangefinderPort = 1;
-    // public static int rangefinderModule = 1;
+
 }

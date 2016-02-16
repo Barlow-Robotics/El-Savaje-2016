@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class ExtensionRunner extends Command {
 
     public ExtensionRunner() {
-    	//requires(Robot.armExtensionSystem);
+    	requires(Robot.extensionSystem);
     }
 
     // Called just before this Command runs the first time
@@ -19,7 +19,7 @@ public class ExtensionRunner extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-//    	Robot.armExtensionSystem.
+    	Robot.extensionSystem.toggleSolenoid();
     }
 
     // Make this return true when this Command no longer needs to run execute()

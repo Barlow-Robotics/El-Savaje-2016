@@ -20,7 +20,7 @@ public class ArmSystem extends Subsystem {
     	setDefaultCommand(new ArmRunner());
     }
     public void swingArm(double motorSpeed){
-    	armMotor.set(-motorSpeed);
+    	armMotor.set(motorSpeed);
     }
 }
 

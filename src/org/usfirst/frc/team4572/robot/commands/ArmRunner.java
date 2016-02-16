@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4572.robot.commands;
 
 import org.usfirst.frc.team4572.robot.Robot;
+import org.usfirst.frc.team4572.robot.OI;
 
 import edu.wpi.first.wpilibj.command.Command;
 /**
@@ -16,11 +17,16 @@ public class ArmRunner extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	
+    	if (OI.armSpeed() < 0.1 && OI.armSpeed() > -0.1 ) {
+    		Robot.armSystem.swingArm(0.2);
+    	} else {
+    		Robot.armSystem.swingArm(-OI.armSpeed());
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()

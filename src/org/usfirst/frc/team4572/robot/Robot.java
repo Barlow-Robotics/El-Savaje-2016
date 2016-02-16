@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team4572.robot.subsystems.ArmSystem;
 import org.usfirst.frc.team4572.robot.subsystems.CameraSystem;
 import org.usfirst.frc.team4572.robot.subsystems.DriveSystem;
+import org.usfirst.frc.team4572.robot.subsystems.ExtensionSystem;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -26,7 +27,7 @@ public class Robot extends IterativeRobot {
 	public static DriveSystem driveSystem;
 	public static ArmSystem armSystem;
 	public static OI oi = new OI();
-	// public static ExtensionSystem armExtensionSystem;
+	public static ExtensionSystem extensionSystem;
 	Command autonomousCommand;
 	SendableChooser chooser;
 
@@ -38,6 +39,7 @@ public class Robot extends IterativeRobot {
 		cameraSystem = new CameraSystem();
 		driveSystem = new DriveSystem();
 		armSystem = new ArmSystem();
+		extensionSystem = new ExtensionSystem();
 		chooser = new SendableChooser();
 		SmartDashboard.putData("Auto mode", chooser);
 	}
@@ -91,7 +93,7 @@ public class Robot extends IterativeRobot {
 
 //		driveSystem.getBackLeftMotor().set(1.0);
 //		driveSystem.getFrontLeftMotor().set(1.0);
-		driveSystem.getDriveTrain().tankDrive(0.6, 0.6);
+//		driveSystem.getDriveTrain().tankDrive(0.6, 0.6);
 	}
 
 	public void teleopInit() {
@@ -117,19 +119,19 @@ public class Robot extends IterativeRobot {
 			driveSystem.getBackRightMotor().set(0.7);
 			driveSystem.getFrontRightMotor().set(0.7);
 		}
-//		if (OI.playstation.getRawButton(1)) {
-//			driveSystem.getFrontLeftMotor().set(0.7);
-//		}
-//		if(OI.playstation.getRawButton(2)){
-//			driveSystem.getFrontRightMotor().set(0.7);
-//		}
-//		if(OI.playstation.getRawButton(3)){
-//			driveSystem.getBackLeftMotor().set(0.7);
-//		}
-//		if(OI.playstation.getRawButton(4)){
-//			driveSystem.getBackRightMotor().set(0.7);
-//		}
-//
+		if (OI.playstation.getRawButton(1)) {
+			driveSystem.getFrontLeftMotor().set(0.7);
+		}
+		if(OI.playstation.getRawButton(2)){
+			driveSystem.getFrontRightMotor().set(0.7);
+		}
+		if(OI.playstation.getRawButton(3)){
+			driveSystem.getBackLeftMotor().set(0.7);
+		}
+		if(OI.playstation.getRawButton(4)){
+			driveSystem.getBackRightMotor().set(0.7);
+		}
+
 //		if(OI.logitech.getTrigger()){
 //			armExtensionSystem.openSolenoid();
 //		}
