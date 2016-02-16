@@ -1,5 +1,6 @@
 
 package org.usfirst.frc.team4572.robot;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Joystick.AxisType;
 
@@ -12,8 +13,8 @@ public class OI {
 	
     public static Joystick playstation = new Joystick(RobotMap.PS_CONTROLLER_PORT);
     public static Joystick logitech = new Joystick(RobotMap.LOGITECH_CONTROLLER_PORT);
-		
-	
+
+
 	public static double getDriveLeft() {
 		//return stick.getAxis(AxisType.kY);
 		return playstation.getY();
@@ -21,13 +22,12 @@ public class OI {
 	public static double getDriveRight() {
 		return playstation.getThrottle();
 	}
-	
+
 	public static double armSpeed(){
 		return logitech.getY();
 	}
-	
+
 	public static double getSensitivity() {
-		return logitech.getAxisChannel(AxisType.kThrottle); 
+		return logitech.getAxisChannel(AxisType.kThrottle);
 	}
 }
-

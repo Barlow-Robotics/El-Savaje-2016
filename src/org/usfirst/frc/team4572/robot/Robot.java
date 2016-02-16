@@ -23,6 +23,7 @@ import edu.wpi.first.wpilibj.Timer;
  */
 
 public class Robot extends IterativeRobot {
+
 	public static CameraSystem cameraSystem;
 	public static DriveSystem driveSystem;
 	public static ArmSystem armSystem;
@@ -118,6 +119,7 @@ public class Robot extends IterativeRobot {
 		if (OI.playstation.getRawButton(6)){
 			driveSystem.getBackRightMotor().set(0.7);
 			driveSystem.getFrontRightMotor().set(0.7);
+			System.out.println("Front Right");
 		}
 		if (OI.playstation.getRawButton(1)) {
 			driveSystem.getFrontLeftMotor().set(0.7);
@@ -127,18 +129,12 @@ public class Robot extends IterativeRobot {
 		}
 		if(OI.playstation.getRawButton(3)){
 			driveSystem.getBackLeftMotor().set(0.7);
+			System.out.println("Back Left");
 		}
 		if(OI.playstation.getRawButton(4)){
 			driveSystem.getBackRightMotor().set(0.7);
+			System.out.println("Back Right");
 		}
-
-//		if(OI.logitech.getTrigger()){
-//			armExtensionSystem.openSolenoid();
-//		}
-//
-//		// TODO: MOVE CONTROL OF ARM SYSTEM TO THE RUNNER COMMAND
-
-
 	}
 
 	public void testInit() {
