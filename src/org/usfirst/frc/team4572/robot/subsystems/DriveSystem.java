@@ -12,10 +12,10 @@ import org.usfirst.frc.team4572.robot.commands.DriveRunner;
  */
 public class DriveSystem extends Subsystem {
 
-	private final Talon frontLeftMotor = new Talon(RobotMap.FRONT_LEFT_MOTOR_PORT);
-	private final Talon frontRightMotor = new Talon(RobotMap.FRONT_RIGHT_MOTOR_PORT);
-	private final Talon backLeftMotor = new Talon(RobotMap.BACK_LEFT_MOTOR_PORT);
-	private final Talon backRightMotor = new Talon(RobotMap.BACK_RIGHT_MOTOR_PORT);
+	private final Spark frontLeftMotor = new Spark(RobotMap.FRONT_LEFT_MOTOR_PORT);
+	private final Spark frontRightMotor = new Spark(RobotMap.FRONT_RIGHT_MOTOR_PORT);
+	private final Spark backLeftMotor = new Spark(RobotMap.BACK_LEFT_MOTOR_PORT);
+	private final Spark backRightMotor = new Spark(RobotMap.BACK_RIGHT_MOTOR_PORT);
 
 
 //	private final RobotDrive driveTrain = new RobotDrive(
@@ -42,9 +42,6 @@ public class DriveSystem extends Subsystem {
 
     	// tell the drainTrain to drive
     	//driveTrain.tankDrive(left, right);
-
-
-
     }
 
 	public Spark getFrontLeftMotor() {

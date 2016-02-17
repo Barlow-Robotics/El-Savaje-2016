@@ -21,7 +21,8 @@ public class RobotMap {
 	public static final int ARM_MOTOR_PORT = 5;
 	
 	//PNEUMATICS
-	public static final int EXTENSTION_SOLENOID_PORT = 0;
+	public static final int FRONT_SOLENOID_PORT = 4;
+	public static final int BACK_SOLENOID_PORT = 5;
 	
 	//SENSORS
 	public static final int CAMERA_PORT = 1;

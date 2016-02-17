@@ -17,9 +17,16 @@ public class ExtensionRunner extends Command {
     protected void initialize() {
     }
 
+    boolean hasToggled = false;
+    
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.extensionSystem.toggleSolenoid();
+    	if (OI.logitech.getRawButton(1) && !hasToggled){
+    		Robot.extensionSystem.togglePiston();
+    		hasToggled = true;
+    	} else {
+    		hasToggled = false;
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
