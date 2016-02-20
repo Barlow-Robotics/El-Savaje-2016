@@ -1,6 +1,9 @@
 package org.usfirst.frc.team4572.robot.commands;
 import org.usfirst.frc.team4572.robot.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc.team4572.robot.OI;
 
 /**
@@ -21,6 +24,13 @@ public class DriveRunner extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+//    	Robot.driveSystem.updateSensitivity();
+    	
+//    	Robot.driveSystem.drive(
+//    		OI.getDriveLeft() * Robot.driveSystem.getSensitivity(),
+//    		OI.getDriveRight() * Robot.driveSystem.getSensitivity()
+//    	);
+    	
     	Robot.driveSystem.drive(OI.getDriveLeft(), OI.getDriveRight());
     }
 

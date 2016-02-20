@@ -27,7 +27,6 @@ public class ExtensionSystem extends Subsystem {
 		pistonOpen = !pistonOpen;
 		setPiston(pistonOpen);
 	}
-    
     private void setPiston(boolean state) {
     	backSolenoid.set(state);
     	frontSolenoid.set(!state);

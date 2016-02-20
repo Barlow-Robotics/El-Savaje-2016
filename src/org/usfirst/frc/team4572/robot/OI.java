@@ -14,11 +14,11 @@ public class OI {
     public static Joystick playstation = new Joystick(RobotMap.PS_CONTROLLER_PORT);
     public static Joystick logitech = new Joystick(RobotMap.LOGITECH_CONTROLLER_PORT);
 
-
 	public static double getDriveLeft() {
 		//return stick.getAxis(AxisType.kY);
 		return playstation.getY();
 	}
+	
 	public static double getDriveRight() {
 		return playstation.getThrottle();
 	}
@@ -27,7 +27,4 @@ public class OI {
 		return logitech.getY();
 	}
 
-	public static double getSensitivity() {
-		return logitech.getAxisChannel(AxisType.kThrottle);
-	}
 }

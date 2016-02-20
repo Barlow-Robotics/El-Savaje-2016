@@ -4,6 +4,9 @@ import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
+
+import org.usfirst.frc.team4572.robot.OI;
+import org.usfirst.frc.team4572.robot.Robot;
 import org.usfirst.frc.team4572.robot.RobotMap;
 import org.usfirst.frc.team4572.robot.commands.DriveRunner;
 
@@ -33,8 +36,6 @@ public class DriveSystem extends Subsystem {
 
     public void drive(double leftSpeed, double rightSpeed) {
 
-    	//DRIVE THE THING BY LEFTSPEED
-
     	frontLeftMotor.set(leftSpeed);
     	backLeftMotor.set(leftSpeed);
     	frontRightMotor.set(rightSpeed);
@@ -59,10 +60,27 @@ public class DriveSystem extends Subsystem {
 	public Spark getBackRightMotor() {
 		return backRightMotor;
 	}
+	
+	private double sensitivity = 0.75;
+	
+	public double getSensitivity() {
+		return sensitivity;
+	}
+	
+	public void updateSensitivity() {
+		if(OI.logitech.getRawButton(8)){
+			sensitivity = 1;
+		}
+    	if(OI.logitech.getRawButton(7)){
+    		sensitivity = 0.75;
+    	}
+    	if(OI.logitech.getRawButton(9)){
+    		sensitivity = 0.5;
+    	}
+    	if(OI.logitech.getRawButton(11)){
+    		sensitivity = 0.25;
+    	}
+	}
 
-//	public RobotDrive getDriveTrain() {
-//		return driveTrain;
-//
-//	}
 
 }
