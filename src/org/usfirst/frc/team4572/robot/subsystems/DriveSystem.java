@@ -61,7 +61,7 @@ public class DriveSystem extends Subsystem {
 		return backRightMotor;
 	}
 	
-	private double sensitivity = 0.75;
+	private double sensitivity = 0.25;
 	
 	public double getSensitivity() {
 		return sensitivity;
@@ -81,6 +81,4 @@ public class DriveSystem extends Subsystem {
     		sensitivity = 0.25;
     	}
 	}
-
-
 }
