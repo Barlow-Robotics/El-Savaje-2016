@@ -1,37 +1,34 @@
 package org.usfirst.frc.team4572.robot.commands;
+
+import org.usfirst.frc.team4572.robot.OI;
 import org.usfirst.frc.team4572.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
-import org.usfirst.frc.team4572.robot.OI;
-
 /**
  *
  */
-public class DriveRunner extends Command {
+public class ExtensionRunner extends Command {
 
-    public DriveRunner() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-    	requires(Robot.driveSystem);
+    public ExtensionRunner() {
+    	requires(Robot.extensionSystem);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-
     }
 
+    boolean hasToggled = false;
+    
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveSystem.updateSensitivity();
+    	if(hasToggled == false && OI.logitech.getRawButton(1)){
+    		hasToggled = true;
+    		Robot.extensionSystem.togglePiston();
+    	}
     	
-    	Robot.driveSystem.drive(
-    		OI.getDriveLeft() * Robot.driveSystem.getSensitivity(),
-    		OI.getDriveRight() * Robot.driveSystem.getSensitivity()
-    	);
-    	
-//    	Robot.driveSystem.drive(OI.getDriveLeft(), OI.getDriveRight());
+    	if(!OI.logitech.getRawButton(1)){
+    		hasToggled = false;
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -1,3 +1,4 @@
+
 package org.usfirst.frc.team4572.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -5,13 +6,14 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
+import org.usfirst.frc.team4572.robot.subsystems.ArmSystem;
 import org.usfirst.frc.team4572.robot.subsystems.CameraSystem;
 import org.usfirst.frc.team4572.robot.subsystems.DriveSystem;
+import org.usfirst.frc.team4572.robot.subsystems.ExtensionSystem;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Timer;
-
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the IterativeRobot
@@ -24,8 +26,9 @@ public class Robot extends IterativeRobot {
 
 	public static CameraSystem cameraSystem;
 	public static DriveSystem driveSystem;
+	public static ArmSystem armSystem;
 	public static OI oi = new OI();
-
+	public static ExtensionSystem extensionSystem;
 	Command autonomousCommand;
 	SendableChooser chooser;
 
@@ -34,10 +37,10 @@ public class Robot extends IterativeRobot {
 	 * used for any initialization code.
 	 */
 	public void robotInit() {
-
 		cameraSystem = new CameraSystem();
 		driveSystem = new DriveSystem();
-
+		armSystem = new ArmSystem();
+		extensionSystem = new ExtensionSystem();
 		chooser = new SendableChooser();
 		SmartDashboard.putData("Auto mode", chooser);
 	}
@@ -109,28 +112,29 @@ public class Robot extends IterativeRobot {
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 
-
-		if (OI.stick.getRawButton(1)) {
+		if (OI.playstation.getRawButton(5)){
+			driveSystem.getBackLeftMotor().set(0.7);
 			driveSystem.getFrontLeftMotor().set(0.7);
-			System.out.println("Front Left");
 		}
-		else if(OI.stick.getRawButton(2)){
+		if (OI.playstation.getRawButton(6)){
+			driveSystem.getBackRightMotor().set(0.7);
 			driveSystem.getFrontRightMotor().set(0.7);
 			System.out.println("Front Right");
 		}
-		else if(OI.stick.getRawButton(3)){
+		if (OI.playstation.getRawButton(1)) {
+			driveSystem.getFrontLeftMotor().set(0.7);
+		}
+		if(OI.playstation.getRawButton(2)){
+			driveSystem.getFrontRightMotor().set(0.7);
+		}
+		if(OI.playstation.getRawButton(3)){
 			driveSystem.getBackLeftMotor().set(0.7);
 			System.out.println("Back Left");
 		}
-		else if(OI.stick.getRawButton(4)){
+		if(OI.playstation.getRawButton(4)){
 			driveSystem.getBackRightMotor().set(0.7);
 			System.out.println("Back Right");
 		}
-
-
-
-
-
 	}
 
 	public void testInit() {

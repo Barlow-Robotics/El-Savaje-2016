@@ -1,37 +1,42 @@
 package org.usfirst.frc.team4572.robot.commands;
+
 import org.usfirst.frc.team4572.robot.Robot;
-
-import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
 import org.usfirst.frc.team4572.robot.OI;
 
+import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class DriveRunner extends Command {
+public class ArmRunner extends Command {
 
-    public DriveRunner() {
+    public ArmRunner() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.driveSystem);
+    	requires(Robot.armSystem);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveSystem.updateSensitivity();
+//    	if (OI.armSpeed() < 0.1 && OI.armSpeed() > -0.1 ) {
+//    		Robot.armSystem.swingArm(0.3);
+//    	} else {
+//    		Robot.armSystem.swingArm(-OI.armSpeed());
+//    	}
+    	if(OI.logitech.getRawButton(3) || OI.logitech.getRawButton(4)){
+    		Robot.armSystem.swingArm(-1);
+    	}
+    	else if(OI.logitech.getRawButton(5) || OI.logitech.getRawButton(6)){
+    		Robot.armSystem.swingArm(1);
+    	}
+    	else {
+    		Robot.armSystem.swingArm(0);
+    	}
     	
-    	Robot.driveSystem.drive(
-    		OI.getDriveLeft() * Robot.driveSystem.getSensitivity(),
-    		OI.getDriveRight() * Robot.driveSystem.getSensitivity()
-    	);
-    	
-//    	Robot.driveSystem.drive(OI.getDriveLeft(), OI.getDriveRight());
     }
 
     // Make this return true when this Command no longer needs to run execute()

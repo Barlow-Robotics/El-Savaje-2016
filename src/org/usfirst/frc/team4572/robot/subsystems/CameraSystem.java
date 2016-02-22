@@ -8,11 +8,8 @@ import org.usfirst.frc.team4572.robot.commands.DriveRunner;
 import com.ni.vision.NIVision;
 import com.ni.vision.NIVision.Image;
 
-/**
- *
- */
 public class CameraSystem extends Subsystem {
-    
+
 	public int session = NIVision.IMAQdxOpenCamera(
 			"cam0",
 			NIVision.IMAQdxCameraControlMode.CameraControlModeController
@@ -23,6 +20,5 @@ public class CameraSystem extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     	setDefaultCommand(new CameraRunner());
-    } 
+    }
 }
-
