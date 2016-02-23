@@ -21,7 +21,7 @@ public class ExtensionRunner extends Command {
     
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(hasToggled == false && OI.logitech.getRawButton(1)){
+    	if(!hasToggled && OI.logitech.getRawButton(1)){
     		hasToggled = true;
     		Robot.extensionSystem.togglePiston();
     	}

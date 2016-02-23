@@ -11,6 +11,8 @@ import org.usfirst.frc.team4572.robot.OI;
  */
 public class DriveRunner extends Command {
 
+	private boolean hasToggled = false;	
+	
     public DriveRunner() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -21,10 +23,19 @@ public class DriveRunner extends Command {
     protected void initialize() {
 
     }
-
+    
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.driveSystem.updateSensitivity();
+    	
+    	if(OI.logitech.getRawButton(12) && !hasToggled){
+    		Robot.driveSystem.toggleDriveMode();
+			hasToggled = true;
+    	}
+    	
+    	if (!OI.logitech.getRawButton(12)) {
+    		hasToggled = false;
+    	}
     	
     	Robot.driveSystem.drive(
     		OI.getDriveLeft() * Robot.driveSystem.getSensitivity(),

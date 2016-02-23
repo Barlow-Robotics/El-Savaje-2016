@@ -19,6 +19,9 @@ public class DriveSystem extends Subsystem {
 	private final Spark frontRightMotor = new Spark(RobotMap.FRONT_RIGHT_MOTOR_PORT);
 	private final Spark backLeftMotor = new Spark(RobotMap.BACK_LEFT_MOTOR_PORT);
 	private final Spark backRightMotor = new Spark(RobotMap.BACK_RIGHT_MOTOR_PORT);
+	
+	private double sensitivity = 1;
+	private boolean isTwoWheelDrive = false;
 
 
 //	private final RobotDrive driveTrain = new RobotDrive(
@@ -35,11 +38,19 @@ public class DriveSystem extends Subsystem {
     }
 
     public void drive(double leftSpeed, double rightSpeed) {
-
-    	frontLeftMotor.set(leftSpeed);
-    	backLeftMotor.set(leftSpeed);
-    	frontRightMotor.set(rightSpeed);
-    	backRightMotor.set(rightSpeed);
+    	
+    	if(isTwoWheelDrive) {
+    		frontLeftMotor.set(0);
+    		frontRightMotor.set(0);
+    		backLeftMotor.set(leftSpeed);
+    		backRightMotor.set(rightSpeed);
+    	}
+    	else {
+        	frontLeftMotor.set(leftSpeed);
+        	backLeftMotor.set(leftSpeed);
+        	frontRightMotor.set(rightSpeed);
+        	backRightMotor.set(rightSpeed);
+    	}
 
     	// tell the drainTrain to drive
     	//driveTrain.tankDrive(left, right);
@@ -61,12 +72,13 @@ public class DriveSystem extends Subsystem {
 		return backRightMotor;
 	}
 	
-	private double sensitivity = 1;
-	
 	public double getSensitivity() {
 		return sensitivity;
 	}
 	
+	public void toggleDriveMode() {
+		isTwoWheelDrive = !isTwoWheelDrive;
+	}
 	public void updateSensitivity() {
 		
 		if(OI.logitech.getRawButton(8) || OI.playstation.getRawButton(7)){

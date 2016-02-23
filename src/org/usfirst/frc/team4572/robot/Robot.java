@@ -69,41 +69,31 @@ public class Robot extends IterativeRobot {
 	 * chooser code above (like the commented example) or additional comparisons
 	 * to the switch structure below with additional strings & commands.
 	 */
-	public void autonomousInit() {
-		autonomousCommand = (Command) chooser.getSelected();
-
-		/*
-		 * String autoSelected = SmartDashboard.getString("Auto Selector",
-		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
-		 * = new MyAutoCommand(); break; case "Default Auto": default:
-		 * autonomousCommand = new ExampleCommand(); break; }
-		 */
-
-		// schedule the autonomous command (example)
-		if (autonomousCommand != null)
-			autonomousCommand.start();
+	public void autonomousInit() {		
+//		if ( this.isAutonomous() ) {
+//			Robot.driveSystem.drive(-0.7, -0.7);
+//			Timer.delay(3000);
+//			Robot.driveSystem.drive(0, 0);
+//		}
 	}
 
-	/**
-	 * This function is called periodically during autonomous
-	 */
+	double autonomousStart = Timer.getFPGATimestamp();
+	
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
 
-//		System.out.println(driveSystem);
-
-//		driveSystem.getBackLeftMotor().set(1.0);
-//		driveSystem.getFrontLeftMotor().set(1.0);
-//		driveSystem.getDriveTrain().tankDrive(0.6, 0.6);
+//		if (autonomousStart + 3000 > Timer.getFPGATimestamp()) {
+//			Robot.driveSystem.drive(-0.7, -0.7);
+//		} else {
+//			Robot.driveSystem.drive(0, 0);
+//		}
+		
 	}
 
 	public void teleopInit() {
-		// This makes sure that the autonomous stops running when
-		// teleop starts running. If you want the autonomous to
-		// continue until interrupted by another command, remove
-		// this line or comment it out.
-		if (autonomousCommand != null)
-			autonomousCommand.cancel();
+		
+//		Robot.driveSystem.drive(0, 0);
+		
 	}
 
 	/**
