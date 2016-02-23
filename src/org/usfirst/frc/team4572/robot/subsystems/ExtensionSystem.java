@@ -14,7 +14,7 @@ public class ExtensionSystem extends Subsystem {
 	private Solenoid backSolenoid = new Solenoid(RobotMap.BACK_SOLENOID_PORT);
 	private Solenoid frontSolenoid = new Solenoid(RobotMap.FRONT_SOLENOID_PORT);
  
-    private boolean pistonOpen = false;	
+    private boolean pistonOpen = true;	
     
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.

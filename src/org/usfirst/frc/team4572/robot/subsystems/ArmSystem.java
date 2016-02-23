@@ -14,12 +14,18 @@ public class ArmSystem extends Subsystem {
     
 	private final Talon armMotor = new Talon(RobotMap.ARM_MOTOR_PORT);
     
+//	private double sensitivity = 0.5
+	
     public void initDefaultCommand() {
     	setDefaultCommand(new ArmRunner());
     }
     
     public void swingArm(double motorSpeed){
     	armMotor.set(motorSpeed);
+    }
+    
+    public void updateSensitivity() {
+    	
     }
     
 }

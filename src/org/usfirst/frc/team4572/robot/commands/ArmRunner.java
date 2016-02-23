@@ -22,15 +22,16 @@ public class ArmRunner extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-//    	if (OI.armSpeed() < 0.1 && OI.armSpeed() > -0.1 ) {
-//    		Robot.armSystem.swingArm(0.3);
-//    	} else {
-//    		Robot.armSystem.swingArm(-OI.armSpeed());
-//    	}
+    	
     	if(OI.logitech.getRawButton(3) || OI.logitech.getRawButton(4)){
     		Robot.armSystem.swingArm(-1);
     	}
-    	else if(OI.logitech.getRawButton(5) || OI.logitech.getRawButton(6)){
+    	else if (OI.logitech.getRawButton(5) || OI.logitech.getRawButton(6)) {
+    		Robot.armSystem.swingArm(0.7);
+    	}
+    	else if((OI.logitech.getRawButton(5)  ||
+				 OI.logitech.getRawButton(6)) &&
+				 OI.logitech.getRawButton(2)) {
     		Robot.armSystem.swingArm(1);
     	}
     	else {

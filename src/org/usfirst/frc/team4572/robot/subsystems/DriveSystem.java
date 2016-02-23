@@ -61,24 +61,36 @@ public class DriveSystem extends Subsystem {
 		return backRightMotor;
 	}
 	
-	private double sensitivity = 0.25;
+	private double sensitivity = 1;
 	
 	public double getSensitivity() {
 		return sensitivity;
 	}
 	
 	public void updateSensitivity() {
-		if(OI.logitech.getRawButton(8)){
+		
+		if(OI.logitech.getRawButton(8) || OI.playstation.getRawButton(7)){
+			// System.out.println("PRESSED BUTTON 8");
 			sensitivity = 1;
+			System.out.println("The sensitivity is now at 100%");
 		}
-    	if(OI.logitech.getRawButton(7)){
+    	
+		if(OI.logitech.getRawButton(7) || OI.playstation.getRawButton(5)){
+    		// System.out.println("PRESSED BUTTON 7");
     		sensitivity = 0.75;
+    		System.out.println("The sensitivity is now at 75%");
     	}
-    	if(OI.logitech.getRawButton(9)){
-    		sensitivity = 0.5;
+    	
+    	if(OI.logitech.getRawButton(9) || OI.playstation.getRawButton(8)){
+    		// System.out.println("PRESSED BUTTON 9");
+    		sensitivity = 0.60;
+    		System.out.println("The sensitivity is now at 60%");
     	}
-    	if(OI.logitech.getRawButton(11)){
-    		sensitivity = 0.25;
+    	
+    	if(OI.logitech.getRawButton(11) || OI.playstation.getRawButton(6)){
+    		// System.out.println("PRESSED BUTTON 11");
+    		sensitivity = 0.50;
+    		System.out.println("The sensitivity is now at 50%");
     	}
 	}
 }
