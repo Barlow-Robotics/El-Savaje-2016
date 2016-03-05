@@ -58,6 +58,7 @@ public class Robot extends IterativeRobot {
 		Scheduler.getInstance().run();
 	}
 
+	private double start;
 	/**
 	 * This autonomous (along with the chooser code above) shows how to select
 	 * between different autonomous modes using the dashboard. The sendable
@@ -71,17 +72,12 @@ public class Robot extends IterativeRobot {
 	 */
 	public void autonomousInit() {
 		autonomousCommand = (Command) chooser.getSelected();
-
-		/*
-		 * String autoSelected = SmartDashboard.getString("Auto Selector",
-		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
-		 * = new MyAutoCommand(); break; case "Default Auto": default:
-		 * autonomousCommand = new ExampleCommand(); break; }
-		 */
-
+		
 		// schedule the autonomous command (example)
 		if (autonomousCommand != null)
 			autonomousCommand.start();
+		
+		start = 0.0;
 	}
 
 	/**
@@ -90,11 +86,18 @@ public class Robot extends IterativeRobot {
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
 
-//		System.out.println(driveSystem);
-
-//		driveSystem.getBackLeftMotor().set(1.0);
-//		driveSystem.getFrontLeftMotor().set(1.0);
-//		driveSystem.getDriveTrain().tankDrive(0.6, 0.6);
+		if(start < 0.1) start = System.currentTimeMillis();
+    	
+		double time = System.currentTimeMillis() - start;
+    	SmartDashboard.putNumber("Time: ", time);
+    	
+    	if(time / 1000.0 < 3) {
+    		driveSystem.drive(1.0, 1.0);
+    		System.out.println("time: " + time);
+    	} else {
+    		driveSystem.drive(0.0, 0.0);
+    		System.out.println("done");
+    	}
 	}
 
 	public void teleopInit() {
