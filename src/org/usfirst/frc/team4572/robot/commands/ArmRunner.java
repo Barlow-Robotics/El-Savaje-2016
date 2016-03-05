@@ -27,12 +27,12 @@ public class ArmRunner extends Command {
     		Robot.armSystem.swingArm(-1);
     	}
     	else if (OI.logitech.getRawButton(5) || OI.logitech.getRawButton(6)) {
-    		Robot.armSystem.swingArm(0.7);
+    		Robot.armSystem.swingArm(1.0);
     	}
     	else if((OI.logitech.getRawButton(5)  ||
 				 OI.logitech.getRawButton(6)) &&
 				 OI.logitech.getRawButton(2)) {
-    		Robot.armSystem.swingArm(1);
+    		Robot.armSystem.swingArm(0.7);
     	}
     	else {
     		Robot.armSystem.swingArm(0);
