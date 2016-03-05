@@ -91,12 +91,10 @@ public class Robot extends IterativeRobot {
 		double time = System.currentTimeMillis() - start;
     	SmartDashboard.putNumber("Time: ", time);
     	
-    	if(time / 1000.0 < 3) {
-    		driveSystem.drive(1.0, 1.0);
-    		System.out.println("time: " + time);
+    	if(time / 1000.0 < 2) {
+    		driveSystem.drive(-1.0, -1.0);
     	} else {
     		driveSystem.drive(0.0, 0.0);
-    		System.out.println("done");
     	}
 	}
 
